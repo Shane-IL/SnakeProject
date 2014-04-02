@@ -1,0 +1,6 @@
+#gameBoard{
+    border: 3px double black;
+    height: 400px;
+    width: 400px;
+    position: relative;
+}

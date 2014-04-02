@@ -1,0 +1,23 @@
+.gridNode{
+    height: 8px;
+    width: 8px;
+    background-color: black;
+    margin: 2px;
+    position: relative;
+}
+
+.rowClass{
+    height: 6px;
+    width: 400px;
+    margin: 2px;
+    position: relative;
+
+}
+
+.nodeClass{
+    height: 8px;
+    width: 8px;
+
+    background-color: black;
+    position: absolute;
+}
