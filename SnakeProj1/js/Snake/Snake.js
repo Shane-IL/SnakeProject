@@ -9,7 +9,7 @@ var Snake = new function() {
 
     function getTailNode(){
         return _snake[_snake.length-1];
-    };
+    }
 
 
     this.initialize = function(){
@@ -57,7 +57,7 @@ var Snake = new function() {
         if(Food.getPosition() === _snake[0].position){
             Food.refreshFood();
             _growing = 3;
-            GlobalVariables.score++;
+            GameLogic.incrementScore();
         }
     };
 

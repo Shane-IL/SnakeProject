@@ -7,9 +7,12 @@ var GameLogic = new function(){
 
     var _this = this;
     //Create the game variables
-    var ticker = null;
+    var _ticker = null;
+    var _currentLevel = levels.Standard;
+    var _currentDirection = snakeDirections.Left;
+    var _score = 0;
 
-    var currentLevel = levels.Standard;
+
 
 
 
@@ -18,12 +21,31 @@ var GameLogic = new function(){
 
     };
 
+    this.getScore = function(){
+        return _score;
+    };
+
+    this.setScore = function (value){
+        _score = value;
+    };
+
+    this.incrementScore = function(){
+        _score++;
+    };
+
+    this.getCurrentDirection = function(){
+        return _currentDirection;
+    };
+
+    this.setCurrentDirection = function(newDirection){
+        _currentDirection = newDirection;
+    };
 
 //Init function
     function resetGame() {
         Snake.initialize();
         Food.refreshFood();
-        GlobalVariables.score = 0;
+        _score = 0;
         //rendering
         gameLoop();
     }
@@ -36,7 +58,7 @@ var GameLogic = new function(){
     function gameLoop(){
         do
         {
-            setInterval(iterate(), currentLevel);
+            setInterval(iterate(), _currentLevel);
         } while(Snake.isAlive());
         _this.stopGame();
     }
@@ -57,15 +79,15 @@ var GameLogic = new function(){
         $('#gameover').show;
         var ans = confirm('Game Over, Try Again?');
         if (ans) {
-            clearInterval(ticker);
+            clearInterval(_ticker);
             $('#gameboard').show;
             $('#gameover').hide;
             resetGame();
         }
-    }
+    };
 
     var iterate = function(){
-        Snake.move(GlobalVariables.currentDirection);
+        Snake.move(_currentDirection);
         //rendering functions
     }
 

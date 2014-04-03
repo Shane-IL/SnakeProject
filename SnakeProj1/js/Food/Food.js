@@ -3,7 +3,7 @@
  */
 
 var Food = new function(){
-    var position = {top: 0, left: 0}
+    var position = {top: 0, left: 0};
 
     this.getPosition = function(){
         return  position;
