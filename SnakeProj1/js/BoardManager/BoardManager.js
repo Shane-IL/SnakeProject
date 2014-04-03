@@ -48,6 +48,15 @@ var BoardManager = new function () {
         boardNodesData[position.top][position.left].ClassManager.reset();
     };
 
+    //Replaced with individual reset for snake nodes -- check why didnt work.
+    this.resetBoard = function(){
+      for(var i =0; i<constants.gridCellHeight; i++){
+            for(var j=0; j<constants.gridCellWidth; j++){
+                boardNodesData[i][j].ClassManager.reset();
+            }
+        }
+    };
+
 };
 
 

@@ -13,6 +13,11 @@ var Snake = new function() {
 
 
     this.initialize = function(){
+        if(_snake.length>0){
+            for(var i=0; i<_snake.length; i++){
+                BoardManager.resetNode(_snake[i].position);
+            }
+        }
         _snake.length =0;
         for (var i = 0; i < constants.initialSnakeLength; i++) {
             _snake.push(
