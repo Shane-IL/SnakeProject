@@ -13,7 +13,7 @@ var Snake = new function() {
 
 
     this.initialize = function(){
-
+        _snake.length =0;
         for (var i = 0; i < constants.initialSnakeLength; i++) {
             _snake.push(
                 {position:{top: constants.initialSnakePosition.top, left: constants.initialSnakePosition.left+i}})
@@ -29,6 +29,10 @@ var Snake = new function() {
         }
 
         return flag;
+    };
+
+    this.pushPosition = function(point){
+        _snake.push({position: point});
     };
 
 
