@@ -20,11 +20,10 @@ var Snake = new function() {
         }
     };
 
-    //Snake position checker -- iterations start at snake[1] to account for head position
     this.occupiesNode =  function (position){
         //simplify
         var flag = false;
-        for(var i=1; i<_snake.length; i++){
+        for(var i=0; i<_snake.length; i++){
             if(_snake[i].position.top === position.top && _snake[i].position.left === position.left)flag = true;
 
         }

@@ -4,6 +4,7 @@
 var BoardManager = new function () {
     var rowMarkup = "";
     var nodeMarkup = "";
+
     this.testGetBoardData = function () {
         return boardNodesData;
     };
