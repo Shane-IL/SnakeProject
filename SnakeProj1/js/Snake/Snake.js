@@ -23,6 +23,7 @@ var Snake = new function() {
             _snake.push(
                 {position:{top: constants.initialSnakePosition.top, left: constants.initialSnakePosition.left+i}})
         }
+
     };
 
     this.occupiesNode =  function (position){
