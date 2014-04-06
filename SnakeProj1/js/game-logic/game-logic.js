@@ -4,9 +4,9 @@
 
 
 var GameLogic = new function(){
-    var _ticker = null;
-    var _currentLevel = levels.Standard;
-    var _currentDirection = snakeDirections.Left;
+    var ticker = null;
+    var _currentLevel = Global.Levels.Standard;
+    var _currentDirection = Global.SnakeDirections.Left;
     var _score = 0;
 
     this.getScore = function(){
@@ -72,7 +72,7 @@ var GameLogic = new function(){
         $('#gameover').show;
         var ans = confirm('Game Over, Try Again?');
         if (ans) {
-            clearInterval(_ticker);
+            clearInterval(ticker);
             $('#gameboard').show;
             $('#gameover').hide;
             this.resetGame();

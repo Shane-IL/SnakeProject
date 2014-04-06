@@ -14,12 +14,12 @@ var Snake = new function() {
 
     this.initialize = function(){
         if(_snake.length>0){
-            this.resetSnakeNodes();
+            _this.resetSnakeNodes();
         }
         _snake.length =0;
-        for (var i = 0; i < constants.initialSnakeLength; i++) {
+        for (var i = 0; i < Global.Constants.InitialSnakeLength; i++) {
             _snake.push(
-                {position:{top: constants.initialSnakePosition.top, left: constants.initialSnakePosition.left+i}})
+                {position:{top: Global.Constants.InitialSnakePosition.top, left: Global.Constants.InitialSnakePosition.left+i}})
         }
         this.renderAll();
 
@@ -88,7 +88,7 @@ var Snake = new function() {
         // var _headNode = _snake[0]
         switch(direction)
         {
-            case snakeDirections.Left:
+            case Global.SnakeDirections.Left:
                 if(_growing<1)
                 {
                     BoardManager.resetNode(getTailNode().position);
@@ -103,7 +103,7 @@ var Snake = new function() {
                     _growing--;
                 }
                 break;
-            case snakeDirections.Right:
+            case Global.SnakeDirections.Right:
                 if(_growing<1)
                 {
                     BoardManager.resetNode(getTailNode().position);
@@ -118,7 +118,7 @@ var Snake = new function() {
                     _growing--;
                 }
                 break;
-            case snakeDirections.Up:
+            case Global.SnakeDirections.Up:
                 if(_growing<1)
                 {
                     BoardManager.resetNode(getTailNode().position);
@@ -133,7 +133,7 @@ var Snake = new function() {
                     _growing--;
                 }
                 break;
-            case snakeDirections.Down:
+            case Global.SnakeDirections.Down:
                 if(_growing<1)
                 {
                     BoardManager.resetNode(getTailNode().position);

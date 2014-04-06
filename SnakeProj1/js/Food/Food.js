@@ -12,13 +12,13 @@ var Food = new function(){
         return  position;
     };
 
+    //move to board manager object conatinaing classes
     this.FoodClass = 'food-class';
 
 
    this.refreshFood = function(){
 
        BoardManager.setClassToNode(position, 'nodeClass');
-       //loop buggered - fix
       do{
           position.top = Math.floor((Math.random()*39));
           position.left = Math.floor((Math.random()*39));
