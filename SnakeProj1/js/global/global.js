@@ -1,8 +1,6 @@
 /**
  * Created by Shane on 17/03/2014.
  */
-//Set constant values
-
 var Global = {
     Constants: {
         InitialSnakeLength: 5,
@@ -23,5 +21,10 @@ var Global = {
         Up: 2,
         Right: 3,
         Down: 4
+    },
+    NodeClasses: {
+        foodClass: 'food-class',
+        snakeClass: 'snake-class',
+        defaultClass: 'default-class'
     }
 };

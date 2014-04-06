@@ -5,51 +5,43 @@ var BoardManager = new function () {
 
     var rowMarkup = "";
     var nodeMarkup = "";
-
     var _this = this;
 
-    this.testGetBoardData = function () {
+    var Templates = {
+        rowTemplate: '<div class="row-class"></div>',
+        nodeTemplate:  '<span class="vertically-centered"></span>'
+    }
+
+    this.getBoardData = function () {
         return boardNodesData;
     };
 
-    var $gameBoard = $('#gameBoard');
+    var $gameBoard;
 
     var boardNodesData = [];
 
-    this.populate = function () {
-//Fix this -- shoddy code -- Replace with object containing strings
-        $.get('js/board-manager/row-template.html', function (data) {
-                rowMarkup = data.toString();
-                $.get('js/board-manager/node-template.html', function (data) {
-                        nodeMarkup = data.toString();
-                        populateBoard();
-                    }
-                );
-            }
-        );
-    };
+    this.initialize = function(){
+        $gameBoard = $('#gameBoard');
+    }
 
-
-
-    function populateBoard() {
+    this.populateBoard = function() {
         for (var i = 0; i < Global.Constants.GridHeight; i++) {
             boardNodesData[i] = {};
 
-            var $row = $.tmpl(rowMarkup);
+            var $row = useTemplate(Templates.rowTemplate);
 
             for (var j = 0; j < Global.Constants.GridWidth; j++) {
-                var $node = $.tmpl(nodeMarkup);
-                boardNodesData[i][j] = {$element: $node, ClassManager: ClassManager.create($node, {class: 'nodeClass'})};
+                var $node = useTemplate(Templates.nodeTemplate);
+                boardNodesData[i][j] = {$element: $node, ClassManager: ClassManager.create($node, {class: Global.NodeClasses.defaultClass})};
                 $row.append($node);
             }
-
             $row.appendTo($gameBoard);
         }
     };
 
     this.getNodeData = function(position){
         return boardNodesData[position.top][position.left];
-    }
+    };
 
     this.setClassToNode = function (position, className) {
         _this.getNodeData(position).ClassManager.setClass(className);
@@ -69,5 +61,7 @@ var BoardManager = new function () {
     };
 
 };
+
+
 
 

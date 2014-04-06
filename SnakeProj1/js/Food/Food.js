@@ -12,19 +12,15 @@ var Food = new function(){
         return  position;
     };
 
-    //move to board manager object conatinaing classes
-    this.FoodClass = 'food-class';
-
-
    this.refreshFood = function(){
 
-       BoardManager.setClassToNode(position, 'nodeClass');
+       BoardManager.setClassToNode(position, Global.NodeClasses.defaultClass);
       do{
           position.top = Math.floor((Math.random()*39));
           position.left = Math.floor((Math.random()*39));
       } while(Snake.occupiesNode(position));
 
-            BoardManager.setClassToNode(position, _this.FoodClass);
+            BoardManager.setClassToNode(position, Global.NodeClasses.foodClass);
     };
 
 

@@ -43,7 +43,7 @@ var Snake = new function() {
 
     this.renderAll = function(){
         for(var i=0; i<_snake.length; i++){
-            BoardManager.setClassToNode(_snake[i].position,'snakeNode');
+            BoardManager.setClassToNode(_snake[i].position,Global.NodeClasses.snakeClass);
         }
     };
 
@@ -55,7 +55,7 @@ var Snake = new function() {
 
 
     this.renderSingleNode = function(point){
-        BoardManager.setClassToNode(point, 'snakeNode');
+        BoardManager.setClassToNode(point, Global.NodeClasses.snakeClass);
     };
 
 

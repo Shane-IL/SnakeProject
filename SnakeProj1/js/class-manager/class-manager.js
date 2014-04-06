@@ -5,9 +5,8 @@ var ClassManager = new function(){
 
    this.create = function($element, options){
        options = $.extend({
-           defaultClass: "nodeClass"},options);
+           defaultClass: "default-class"},options);
 
-       var defaultClass = options.defaultClass;
        var currentClass = options.class;
 
        var controller = {

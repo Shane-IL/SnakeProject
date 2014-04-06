@@ -30,10 +30,12 @@ var GameLogic = new function(){
     };
 
     this.initialize = function(){
-        BoardManager.populate();
-        //this.resetGame();
-
+        BoardManager.initialize();
     };
+
+    this.run = function(){
+        BoardManager.populateBoard();
+    }
 
     this.resetGame =function() {
         Snake.initialize();
@@ -66,7 +68,7 @@ var GameLogic = new function(){
         else return true;
     };
 
-
+//fix
     this.stopGame = function(){
         $('#gameboard').hide;
         $('#gameover').show;

@@ -1,0 +1,7 @@
+.vertically-centered{
+    display: inline-block;
+    vertical-align: top;
+    height: 8px;
+    width: 8px;
+    margin: 1px;
+}

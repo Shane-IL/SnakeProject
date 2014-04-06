@@ -1,29 +1,18 @@
 .row-class{
-    height: 10px;
-    width: 400px;
     position: relative;
-
+    height: 10px;
 }
 
-.node-class{
-    height: 8px;
-    width: 8px;
-    margin: 1px;
+.default-class{
     background-color: black;
     position: relative;
 }
 
 .food-class{
-    width: 8px;
-    height: 8px;
-    margin: 1px;
     background-color: red;
 }
 
 .snake-class{
-    width: 8px;
-    height: 8px;
-    margin: 1px;
     background-color: green;
 }
 
@@ -36,10 +25,10 @@
 }
 
 #gameBoard .node-class.food-class{
-
+    background-color: red;
 }
 
 #gameBoard .nodeClass.snake-class{
-
+    background-color: green;
 }
 
