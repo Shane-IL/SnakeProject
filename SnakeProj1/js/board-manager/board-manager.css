@@ -1,0 +1,45 @@
+.row-class{
+    height: 10px;
+    width: 400px;
+    position: relative;
+
+}
+
+.node-class{
+    height: 8px;
+    width: 8px;
+    margin: 1px;
+    background-color: black;
+    position: relative;
+}
+
+.food-class{
+    width: 8px;
+    height: 8px;
+    margin: 1px;
+    background-color: red;
+}
+
+.snake-class{
+    width: 8px;
+    height: 8px;
+    margin: 1px;
+    background-color: green;
+}
+
+#gameBoard .nodeClass{
+
+}
+
+#gameBoard .snakeClass{
+
+}
+
+#gameBoard .node-class.food-class{
+
+}
+
+#gameBoard .nodeClass.snake-class{
+
+}
+

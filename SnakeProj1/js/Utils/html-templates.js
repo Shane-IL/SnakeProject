@@ -5,8 +5,8 @@
 // not ready yet
 
 var Templates = {
-    template1: null,
-    template2: null
+    rowTemplate: '<div class="row-class"></div>',
+    nodeTemplate:  '<div class="node-class"></div>'
 }
 
 var useTemplate = function(){
