@@ -39,6 +39,7 @@ var GameLogic = new function(){
         Snake.initialize();
         Food.refreshFood();
         _score = 0;
+        this.gameLoop();
 
     }
 
@@ -60,8 +61,8 @@ var GameLogic = new function(){
 
 
     this.isWall = function(top, left){
-        if(top === 0 || top === 40) return false;
-        else if(left === 0 || left ===40) return false;
+        if(top <= 0 || top >= 40) return false;
+        else if(left <= 0 || left >=40) return false;
         else return true;
     };
 
@@ -74,12 +75,13 @@ var GameLogic = new function(){
             clearInterval(_ticker);
             $('#gameboard').show;
             $('#gameover').hide;
-            resetGame();
+            this.resetGame();
         }
     };
 
     this.iterate = function(){
         Snake.move(_currentDirection);
+        InputManager.listen();
         //rendering functions
     }
 

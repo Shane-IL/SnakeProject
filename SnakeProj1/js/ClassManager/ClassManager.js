@@ -19,7 +19,6 @@ var ClassManager = new function(){
            reset: function(){
                if(currentClass){
                    $element.removeClass(currentClass);
-                   $element.addClass(defaultClass);
                }
            }
        };

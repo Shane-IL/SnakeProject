@@ -3,4 +3,22 @@
     height: 400px;
     width: 400px;
     position: relative;
+
 }
+
+#gameBoard .nodeClass{
+
+}
+
+#gameBoard .snakeClass{
+
+}
+
+#gameBoard .node-class.food-class{
+
+}
+
+#gameBoard .nodeClass.snake-class{
+
+}
+

@@ -2,6 +2,7 @@
  * Created by Shane on 18/03/2014.
  */
 var BoardManager = new function () {
+
     var rowMarkup = "";
     var nodeMarkup = "";
 
@@ -9,10 +10,11 @@ var BoardManager = new function () {
         return boardNodesData;
     };
 
+    var $gameBoard = $('#gameBoard');
+
     var boardNodesData = [];
 
     this.populate = function () {
-
 //Fix this -- shoddy code
         $.get('js/BoardManager/RowTemplate.html', function (data) {
                 rowMarkup = data.toString();
@@ -26,19 +28,22 @@ var BoardManager = new function () {
     };
 
 
+
     function populateBoard() {
         for (var i = 0; i < constants.gridHeight; i++) {
             boardNodesData[i] = {};
-            var $row = $.tmpl(rowMarkup, {topCoord: (i * 10), top: (i * 10).toString() + "px"});
-            $row.appendTo('#gameBoard');
+
+            var $row = $.tmpl(rowMarkup);
 
             for (var j = 0; j < constants.gridWidth; j++) {
-                var $node = $.tmpl(nodeMarkup, {topCoord: (i * 10), leftCoord: (j * 10), left: (j * 10).toString() + "px"});
+                var $node = $.tmpl(nodeMarkup);
                 boardNodesData[i][j] = {$element: $node, ClassManager: ClassManager.create($node, {class: 'nodeClass'})};
-                $("#row-" + (i * 10)).append($node);
+                $row.append($node);
             }
+
+            $row.appendTo($gameBoard);
         }
-    }
+    };
 
     this.setClassToNode = function (position, className) {
         boardNodesData[position.top][position.left].ClassManager.setClass(className);

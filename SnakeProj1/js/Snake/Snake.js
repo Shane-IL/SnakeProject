@@ -21,6 +21,7 @@ var Snake = new function() {
             _snake.push(
                 {position:{top: constants.initialSnakePosition.top, left: constants.initialSnakePosition.left+i}})
         }
+        this.renderAll();
 
     };
 
@@ -60,9 +61,9 @@ var Snake = new function() {
 
 
     this.isAlive = function(){
-        if(!_this.occupiesNode(_snake[0])) return false;
+        if(_this.occupiesNode(_snake[0])) return false;
 
-        else if(!GameLogic.isWall(_snake[0])) return false;
+        else if(GameLogic.isWall(_snake[0])) return false;
 
         else return true;
     };
