@@ -14,9 +14,7 @@ var Snake = new function() {
 
     this.initialize = function(){
         if(_snake.length>0){
-            for(var i=0; i<_snake.length; i++){
-                BoardManager.resetNode(_snake[i].position);
-            }
+            this.resetSnakeNodes();
         }
         _snake.length =0;
         for (var i = 0; i < constants.initialSnakeLength; i++) {
@@ -47,6 +45,13 @@ var Snake = new function() {
             BoardManager.setClassToNode(_snake[i].position,'snakeNode');
         }
     };
+
+    this.resetSnakeNodes = function(){
+        for(var i=0; i<_snake.length; i++){
+            BoardManager.resetNode(_snake[i].position);
+        }
+    };
+
 
     this.renderSingleNode = function(point){
         BoardManager.setClassToNode(point, 'snakeNode');
