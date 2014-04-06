@@ -6,6 +6,8 @@ var BoardManager = new function () {
     var rowMarkup = "";
     var nodeMarkup = "";
 
+    var _this = this;
+
     this.testGetBoardData = function () {
         return boardNodesData;
     };
@@ -15,10 +17,10 @@ var BoardManager = new function () {
     var boardNodesData = [];
 
     this.populate = function () {
-//Fix this -- shoddy code
-        $.get('js/BoardManager/RowTemplate.html', function (data) {
+//Fix this -- shoddy code -- Replace with object containing strings
+        $.get('js/board-manager/row-template.html', function (data) {
                 rowMarkup = data.toString();
-                $.get('js/BoardManager/NodeTemplate.html', function (data) {
+                $.get('js/board-manager/node-template.html', function (data) {
                         nodeMarkup = data.toString();
                         populateBoard();
                     }
@@ -30,12 +32,12 @@ var BoardManager = new function () {
 
 
     function populateBoard() {
-        for (var i = 0; i < constants.gridHeight; i++) {
+        for (var i = 0; i < Global.Constants.GridHeight; i++) {
             boardNodesData[i] = {};
 
             var $row = $.tmpl(rowMarkup);
 
-            for (var j = 0; j < constants.gridWidth; j++) {
+            for (var j = 0; j < Global.Constants.GridWidth; j++) {
                 var $node = $.tmpl(nodeMarkup);
                 boardNodesData[i][j] = {$element: $node, ClassManager: ClassManager.create($node, {class: 'nodeClass'})};
                 $row.append($node);
@@ -45,18 +47,22 @@ var BoardManager = new function () {
         }
     };
 
+    this.getNodeData = function(position){
+        return boardNodesData[position.top][position.left];
+    }
+
     this.setClassToNode = function (position, className) {
-        boardNodesData[position.top][position.left].ClassManager.setClass(className);
+        _this.getNodeData(position).ClassManager.setClass(className);
     };
 
     this.resetNode = function (position) {
-        boardNodesData[position.top][position.left].ClassManager.reset();
+        _this.getNodeData(position).ClassManager.reset();
     };
 
-    //Replaced with individual reset for snake nodes -- check why didnt work.
+
     this.resetBoard = function(){
-      for(var i =0; i<constants.gridCellHeight; i++){
-            for(var j=0; j<constants.gridCellWidth; j++){
+      for(var i =0; i<Global.Constants.GridHeight; i++){
+            for(var j=0; j<Global.Constants.GridWidth; j++){
                 boardNodesData[i][j].ClassManager.reset();
             }
         }

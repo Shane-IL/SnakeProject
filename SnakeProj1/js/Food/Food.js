@@ -3,11 +3,16 @@
  */
 
 var Food = new function(){
+
+    var _this = this;
+
     var position = {top: 0, left: 0};
 
     this.getPosition = function(){
         return  position;
     };
+
+    this.FoodClass = 'food-class';
 
 
    this.refreshFood = function(){
@@ -19,15 +24,8 @@ var Food = new function(){
           position.left = Math.floor((Math.random()*39));
       } while(Snake.occupiesNode(position));
 
-            BoardManager.setClassToNode(position, 'foodNode');
+            BoardManager.setClassToNode(position, _this.FoodClass);
     };
-
-    //testing function
-    this.testGeneration = function(){
-        var i=0;
-        while(i<1000){Food.refreshFood(); console.log(Food.getPosition()); i++}
-    };
-
 
 
 
