@@ -3,8 +3,6 @@
  */
 var BoardManager = new function () {
 
-    var rowMarkup = "";
-    var nodeMarkup = "";
     var _this = this;
 
     var Templates = {

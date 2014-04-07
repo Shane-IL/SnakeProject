@@ -4,7 +4,7 @@
 
 
 var GameLogic = new function(){
-    var ticker = null;
+    var ticker;
     var _currentLevel = Global.Levels.Standard;
     var _currentDirection = Global.SnakeDirections.Left;
     var _score = 0;
@@ -38,7 +38,7 @@ var GameLogic = new function(){
     }
 
     this.resetGame =function() {
-        Snake.initialize();
+        Snake.refreshSnake();
         Food.refreshFood();
         _score = 0;
         this.gameLoop();

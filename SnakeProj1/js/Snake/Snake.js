@@ -12,7 +12,7 @@ var Snake = new function() {
     }
 
 
-    this.initialize = function(){
+    this.refreshSnake = function(){
         if(_snake.length>0){
             _this.resetSnakeNodes();
         }
@@ -26,15 +26,16 @@ var Snake = new function() {
     };
 
     this.occupiesNode =  function (position){
-        //simplify
-        var flag = false;
+        var flag = 0;
         for(var i=0; i<_snake.length; i++){
-            if(_snake[i].position.top === position.top && _snake[i].position.left === position.left)flag = true;
+            if(i ===0 && _snake[0].position === position) flag =2;
+            else if(_snake[i].position=== position)flag = 1;
 
         }
 
         return flag;
     };
+
 
     this.pushPosition = function(point){
         _snake.push({position: point});
@@ -61,9 +62,10 @@ var Snake = new function() {
 
 
     this.isAlive = function(){
-        if(_this.occupiesNode(_snake[0])) return false;
+        //bug
+        if(_this.occupiesNode(_snake[0].position) === 1) return false;
 
-        else if(GameLogic.isWall(_snake[0])) return false;
+        else if(GameLogic.isWall(_snake[0].position)) return false;
 
         else return true;
     };
