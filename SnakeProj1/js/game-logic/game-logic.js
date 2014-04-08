@@ -55,7 +55,7 @@ var GameLogic = new function(){
     this.gameLoop =function(){
         do
         {
-            setInterval(this.iterate(),2000);
+            setTimeout(function(){_this.iterate()}, 2000);
         } while(Snake.isAlive());
         this.stopGame();
     }
