@@ -25,13 +25,25 @@ var Snake = new function() {
 
     };
 
-    this.occupiesNode =  function (position){
+    this.testoccupiesNode =  function (position){
         var flag = false;
         for(var i=0; i<_snake.length; i++){
             if(_snake[i].position.top === position.top && _snake[i].position.left === position.left)flag = true;
 
         }
 
+        return flag;
+    };
+
+    this.occupiesNode = function(position){
+        var flag =0;
+        if($.equalObjects(position, _snake[0].position))flag =2;
+        else{
+          for(var i=1; i<_snake.length; i++){
+              if($.equalObjects(position, _snake[i].position))flag =1;
+          }
+        };
+        console.log(flag);
         return flag;
     };
 
@@ -62,7 +74,7 @@ var Snake = new function() {
 
     this.isAlive = function(){
         //bug
-        if(_this.occupiesNode(_snake[0])) return false;
+        if(_this.occupiesNode(_snake[0].position) > 1) return false;
 
         else if(GameLogic.isWall(_snake[0])) return false;
 

@@ -8,6 +8,7 @@ var GameLogic = new function(){
     var _currentLevel = Global.Levels.Standard;
     var _currentDirection = Global.SnakeDirections.Left;
     var _score = 0;
+    var _this = this;
 
     this.getScore = function(){
         return _score;
@@ -35,6 +36,7 @@ var GameLogic = new function(){
 
     this.run = function(){
         BoardManager.populateBoard();
+
     }
 
     this.resetGame =function() {
