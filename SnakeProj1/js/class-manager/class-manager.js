@@ -16,7 +16,7 @@ var ClassManager = new function(){
              currentClass = newClass;
            },
            reset: function(){
-               if(currentClass){
+               if(currentClass != Global.NodeClasses.defaultClass){
                    $element.removeClass(currentClass);
                }
            }

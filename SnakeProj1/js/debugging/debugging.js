@@ -11,4 +11,10 @@ var Debugging = new function() {
             i++
         }
     };
+
+    this.renderSingleNode = function(point,nodeClass){
+        BoardManager.setClassToNode(point, nodeClass);
+    };
 };
+
+

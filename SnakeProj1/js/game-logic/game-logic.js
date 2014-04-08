@@ -55,7 +55,7 @@ var GameLogic = new function(){
     this.gameLoop =function(){
         do
         {
-            setInterval(this.iterate(), _currentLevel);
+            setInterval(this.iterate(),2000);
         } while(Snake.isAlive());
         this.stopGame();
     }
@@ -64,10 +64,10 @@ var GameLogic = new function(){
 
 
 
-    this.isWall = function(top, left){
-        if(top <= 0 || top >= 40) return false;
-        else if(left <= 0 || left >=40) return false;
-        else return true;
+    this.isWall = function(position){
+        if(position.top <= 0 || position.top >= 40) return true;
+        else if(position.left <= 0 || position.left >=40) return true;
+        else return false;
     };
 
 //fix
