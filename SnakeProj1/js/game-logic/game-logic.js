@@ -9,7 +9,15 @@ var GameLogic = new function(){
     var _currentDirection = Global.SnakeDirections.Left;
     var _score = 0;
     var _this = this;
-    var _speed = 400;
+    var _speed = 200;
+    var _dirChanges;
+
+    this.getChanges = function(){
+        return _dirChanges;
+    };
+    this.incrementChanges = function(){
+        _dirChanges++;
+    };
 
     this.getScore = function(){
         return _score;
@@ -29,7 +37,7 @@ var GameLogic = new function(){
 
     this.incrementSpeed = function(increment){
         console.log(increment)
-        if(_speed <= 6000 && _speed >= 100){
+        if(_speed < 6000 && _speed >= 50){
             _speed+=increment;
             clearInterval(ticker);
             ticker =  setInterval(function(){_this.iterate()}, _speed);
@@ -59,7 +67,8 @@ var GameLogic = new function(){
     };
 
     this.resetGame =function() {
-        _this.setSpeed(400);
+        clearInterval(ticker);
+        _this.setSpeed(200);
         Snake.refreshSnake();
         Food.refreshFood();
         _score = 0;
@@ -74,10 +83,8 @@ var GameLogic = new function(){
 
     this.gameLoop =function(){
            ticker =  setInterval(function(){_this.iterate()}, _speed);
+
     };
-
-
-
 
 
     this.isWall = function(position){
@@ -90,34 +97,24 @@ var GameLogic = new function(){
     this.stopGame = function() {
         console.log("stopped");
         clearInterval(ticker);
-        $('#gameboard').hide;
-        $('#gameover').show;
         var ans = confirm('Game Over, Try Again?');
         if (ans) {
-            $('#gameboard').show;
-            $('#gameover').hide;
             this.resetGame();
         }
-        else clearInterval(ticker);
+
     }
 
     this.iterate = function(){
-        console.log("one iteration, speed: "+_speed);
+        _dirChanges = 0;
         Snake.hasEaten();
         ScreenButtonManager.listen();
         MoveButtonManager.listen();
         $('#speedStatus').html(_speed);
         if(!Snake.isAlive()){
             _this.stopGame();
-        };
+        }
         Snake.move(_currentDirection);
-
     }
-
-
-
-
-
 
 
 }();

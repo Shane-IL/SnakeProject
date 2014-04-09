@@ -86,7 +86,6 @@ var Snake = new function() {
     };
 
     this.move = function(direction){
-        console.log("one move, speed: "+GameLogic.getSpeed());
         switch(direction)
         {
             case Global.SnakeDirections.Left:
