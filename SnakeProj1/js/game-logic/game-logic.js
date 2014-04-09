@@ -9,6 +9,7 @@ var GameLogic = new function(){
     var _currentDirection = Global.SnakeDirections.Left;
     var _score = 0;
     var _this = this;
+    var _speed = 400;
 
     this.getScore = function(){
         return _score;
@@ -17,6 +18,24 @@ var GameLogic = new function(){
     this.setScore = function (value){
         _score = value;
     };
+
+    this.getSpeed = function(){
+      return _speed;
+    };
+
+    this.setSpeed = function(speed){
+        _speed = speed
+    };
+
+    this.incrementSpeed = function(increment){
+        console.log(increment)
+        if(_speed <= 6000 && _speed >= 100){
+            _speed+=increment;
+            clearInterval(ticker);
+            ticker =  setInterval(function(){_this.iterate()}, _speed);
+        }
+    };
+
 
     this.incrementScore = function(){
         _score++;
@@ -36,10 +55,11 @@ var GameLogic = new function(){
 
     this.run = function(){
         BoardManager.populateBoard();
-
-    }
+        MasterControls.listen();
+    };
 
     this.resetGame =function() {
+        _this.setSpeed(400);
         Snake.refreshSnake();
         Food.refreshFood();
         _score = 0;
@@ -51,9 +71,9 @@ var GameLogic = new function(){
 
 //Game loop -  add to init func later
 //Set movement interval for game loop
-//setInterval(snakeMove, 200);
+
     this.gameLoop =function(){
-           ticker =  setInterval(function(){_this.iterate()}, 200);
+           ticker =  setInterval(function(){_this.iterate()}, _speed);
     };
 
 
@@ -82,7 +102,9 @@ var GameLogic = new function(){
 
     this.iterate = function(){
         Snake.hasEaten();
-        InputManager.listen();
+        ScreenButtonManager.listen();
+        MoveButtonManager.listen();
+        $('#speedStatus').html(_speed);
         Snake.move(_currentDirection);
         if(!Snake.isAlive()){
             clearInterval(ticker);

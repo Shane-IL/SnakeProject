@@ -14,6 +14,7 @@ var Snake = new function() {
 
 
     this.refreshSnake = function(){
+        GameLogic.setCurrentDirection(Global.SnakeDirections.Left);
         if(_snake.length>0){
             _this.resetSnakeNodes();
         }

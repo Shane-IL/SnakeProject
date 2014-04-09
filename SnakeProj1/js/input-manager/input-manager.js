@@ -1,7 +1,7 @@
 /**
  * Created by Shane on 23/03/2014.
  */
-var InputManager =  new function(){
+var MoveButtonManager =  new function(){
    this.listen = function(){
        $(document).keydown(function(e){
            var key = e.which;
@@ -11,4 +11,17 @@ var InputManager =  new function(){
            else if(key == "40" && GameLogic.getCurrentDirection() != Global.SnakeDirections.Up) GameLogic.setCurrentDirection(Global.SnakeDirections.Down);
        });
    }
+};
+
+var MasterControls =  new function(){
+  this.listen = function(){
+    $('#resetButton').click(function(){GameLogic.resetGame()});
+  };
+};
+
+var ScreenButtonManager = new function(){
+    this.listen = function(){
+        $('#speedUp').unbind().mousedown(function(){GameLogic.incrementSpeed(-100)});
+        $('#speedDown').unbind().mousedown(function(){GameLogic.incrementSpeed(100)});
+    };
 };
