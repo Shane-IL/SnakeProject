@@ -53,12 +53,8 @@ var GameLogic = new function(){
 //Set movement interval for game loop
 //setInterval(snakeMove, 200);
     this.gameLoop =function(){
-        do
-        {
-            setTimeout(function(){_this.iterate()}, 2000);
-        } while(Snake.isAlive());
-        this.stopGame();
-    }
+           ticker =  setInterval(function(){_this.iterate()}, 200);
+    };
 
 
 
@@ -72,11 +68,12 @@ var GameLogic = new function(){
 
 //fix
     this.stopGame = function(){
+
         $('#gameboard').hide;
         $('#gameover').show;
         var ans = confirm('Game Over, Try Again?');
         if (ans) {
-            clearInterval(ticker);
+
             $('#gameboard').show;
             $('#gameover').hide;
             this.resetGame();
@@ -86,7 +83,10 @@ var GameLogic = new function(){
     this.iterate = function(){
         Snake.move(_currentDirection);
         InputManager.listen();
-        //rendering functions
+        if(!Snake.isAlive()){
+            clearInterval(ticker);
+            _this.stopGame();
+        };
     }
 
 

@@ -118,21 +118,6 @@ var Snake = new function() {
                 if(_growing<1)
                 {
                     BoardManager.resetNode(getTailNode().position);
-                    getTailNode().position.top= _snake[0].position.top+1;
-                    getTailNode().position.left = _snake[0].position.left;
-                    _snake.unshift(_snake.pop());
-                    BoardManager.setClassToNode(_snake[0].position, Global.NodeClasses.snakeClass)
-                }
-                else
-                {
-                    _snake.unshift({position: {top: _snake[0].position.top+1, left: _snake[0].position.left}});
-                    _growing--;
-                }
-                break;
-            case Global.SnakeDirections.Down:
-                if(_growing<1)
-                {
-                    BoardManager.resetNode(getTailNode().position);
                     getTailNode().position.top= _snake[0].position.top-1;
                     getTailNode().position.left = _snake[0].position.left;
                     _snake.unshift(_snake.pop());
@@ -141,6 +126,21 @@ var Snake = new function() {
                 else
                 {
                     _snake.unshift({position: {top: _snake[0].position.top-1, left: _snake[0].position.left}});
+                    _growing--;
+                }
+                break;
+            case Global.SnakeDirections.Down:
+                if(_growing<1)
+                {
+                    BoardManager.resetNode(getTailNode().position);
+                    getTailNode().position.top= _snake[0].position.top+1;
+                    getTailNode().position.left = _snake[0].position.left;
+                    _snake.unshift(_snake.pop());
+                    BoardManager.setClassToNode(_snake[0].position, Global.NodeClasses.snakeClass)
+                }
+                else
+                {
+                    _snake.unshift({position: {top: _snake[0].position.top+1, left: _snake[0].position.left}});
                     _growing--;
                 }
                 break;
