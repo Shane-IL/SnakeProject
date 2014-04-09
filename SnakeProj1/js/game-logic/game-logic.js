@@ -81,8 +81,9 @@ var GameLogic = new function(){
     };
 
     this.iterate = function(){
-        Snake.move(_currentDirection);
+        Snake.hasEaten();
         InputManager.listen();
+        Snake.move(_currentDirection);
         if(!Snake.isAlive()){
             clearInterval(ticker);
             _this.stopGame();
