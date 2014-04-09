@@ -21,7 +21,7 @@ var MasterControls =  new function(){
 
 var ScreenButtonManager = new function(){
     this.listen = function(){
-        $('#speedUp').unbind().mousedown(function(){GameLogic.incrementSpeed(-100)});
-        $('#speedDown').unbind().mousedown(function(){GameLogic.incrementSpeed(100)});
+        $('#speedUp').unbind().click(function(){GameLogic.incrementSpeed(-50)});
+        $('#speedDown').unbind().click(function(){GameLogic.incrementSpeed(50)});
     };
 };

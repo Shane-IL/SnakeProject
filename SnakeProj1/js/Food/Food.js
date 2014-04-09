@@ -13,13 +13,11 @@ var Food = new function(){
     };
 
    this.refreshFood = function(){
-
-   BoardManager.setClassToNode(position, Global.NodeClasses.defaultClass);
-      do{
+   if(!Snake.occupiesNode(position))BoardManager.setClassToNode(position, Global.NodeClasses.defaultClass);
+  do{
           position.top = Math.floor((Math.random()*39));
           position.left = Math.floor((Math.random()*39));
-      } while(Snake.occupiesNode(position) > 0);
-
+    } while(Snake.occupiesNode(position));
         BoardManager.setClassToNode(position, Global.NodeClasses.foodClass);
     };
 

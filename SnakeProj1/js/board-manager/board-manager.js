@@ -38,15 +38,17 @@ var BoardManager = new function () {
     };
 
     this.getNodeData = function(position){
-        return boardNodesData[position.top][position.left];
+        if(GameLogic.isWall(position)) GameLogic.stopGame();
+        else return boardNodesData[position.top][position.left];
     };
 
     this.setClassToNode = function (position, className) {
-        _this.getNodeData(position).ClassManager.setClass(className);
+        if(GameLogic.isWall(position)) GameLogic.stopGame();
+        else _this.getNodeData(position).ClassManager.setClass(className);
     };
 
     this.resetNode = function (position) {
-        _this.getNodeData(position).ClassManager.reset();
+        if(!GameLogic.isWall(position)) _this.getNodeData(position).ClassManager.reset();
     };
 
 

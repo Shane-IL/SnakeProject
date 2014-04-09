@@ -81,35 +81,37 @@ var GameLogic = new function(){
 
 
     this.isWall = function(position){
-        if(position.top <= 0 || position.top >= 40) return true;
-        else if(position.left <= 0 || position.left >=40) return true;
+        if(position.top < 0 || position.top > 39) return true;
+        else if(position.left < 0 || position.left >39) return true;
         else return false;
     };
 
 //fix
-    this.stopGame = function(){
-
+    this.stopGame = function() {
+        console.log("stopped");
+        clearInterval(ticker);
         $('#gameboard').hide;
         $('#gameover').show;
         var ans = confirm('Game Over, Try Again?');
         if (ans) {
-
             $('#gameboard').show;
             $('#gameover').hide;
             this.resetGame();
         }
-    };
+        else clearInterval(ticker);
+    }
 
     this.iterate = function(){
+        console.log("one iteration, speed: "+_speed);
         Snake.hasEaten();
         ScreenButtonManager.listen();
         MoveButtonManager.listen();
         $('#speedStatus').html(_speed);
-        Snake.move(_currentDirection);
         if(!Snake.isAlive()){
-            clearInterval(ticker);
             _this.stopGame();
         };
+        Snake.move(_currentDirection);
+
     }
 
 
