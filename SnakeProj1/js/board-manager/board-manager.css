@@ -10,10 +10,17 @@
 
 .food-class{
     background-color: red;
+    border-radius: 5px;
 }
 
 .snake-class{
     background-color: green;
+    border-radius: 3px;
+}
+
+.hole-class{
+    background-color: black;
+    border-radius: 5px;
 }
 
 #gameBoard .nodeClass{

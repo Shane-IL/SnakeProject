@@ -24,6 +24,7 @@ var Global = {
     },
     NodeClasses: {
         foodClass: 'food-class',
+        holeClass: 'hole-class',
         snakeClass: 'snake-class',
         defaultClass: 'default-class'
     }

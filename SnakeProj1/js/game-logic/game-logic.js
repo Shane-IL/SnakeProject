@@ -88,8 +88,8 @@ var GameLogic = new function(){
 
 
     this.isWall = function(position){
-        if(position.top < 0 || position.top > 39) return true;
-        else if(position.left < 0 || position.left >39) return true;
+        if(position.top < 0 || position.top > Global.Constants.GridHeight-1) return true;
+        else if(position.left < 0 || position.left >Global.Constants.GridWidth-1) return true;
         else return false;
     };
 
