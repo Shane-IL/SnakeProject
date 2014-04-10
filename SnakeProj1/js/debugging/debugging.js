@@ -12,6 +12,14 @@ var Debugging = new function() {
         }
     };
 
+    this.pushPosition = function(point){
+        Snake.getSnakeArray().push({position: point});
+    };
+
+    this.getHeadPosition = function(){
+        return Snake.getSnakeArray()[0].position;
+    };
+
     this.renderSingleNode = function(point,nodeClass){
         BoardManager.setClassToNode(point, nodeClass);
     };
