@@ -12,13 +12,6 @@ $.extend({
                     if (obj1[i] != obj2[i]) flag =  false;
                 }
             }
-            for (var i in obj2) {
-                if (obj2.hasOwnProperty(i)) {
-                    if (!obj1.hasOwnProperty(i)) flag = false;
-                    if (obj1[i] != obj2[i]) flag =  false;
-                }
-            }
-
         } return flag;
     }
 });
