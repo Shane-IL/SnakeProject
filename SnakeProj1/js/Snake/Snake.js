@@ -6,12 +6,7 @@ var Snake = new function() {
     var _this = this;
     var _snake=[];
     var _growing = 0;
-    var tailNode = _snake[_snake.length-1];
-
-    function getTailNode(){
-        return _snake[_snake.length-1];
-    }
-
+    var _tailNode;
 
     this.refreshSnake = function(){
         GameLogic.setCurrentDirection(Global.SnakeDirections.Left);
@@ -41,12 +36,6 @@ var Snake = new function() {
         return false;
     };
 
-
-    this.pushPosition = function(point){
-        _snake.push({position: point});
-    };
-
-
     this.renderAll = function(){
         for(var i=0; i<_snake.length; i++){
             BoardManager.setClassToNode(_snake[i].position,Global.NodeClasses.snakeClass);
@@ -59,13 +48,9 @@ var Snake = new function() {
         }
     };
 
-
     this.isAlive = function(){
-        //bug
         if(_this.eatingSelf(_snake[0].position)) return false;
-
         else if(GameLogic.isWall(_snake[0].position)) return false;
-
         else return true;
     };
 
@@ -77,23 +62,20 @@ var Snake = new function() {
         }
     };
 
-    this.getHeadPosition = function(){
-        return _snake[0].position;
-    };
-
     this.getSnakeArray = function(){
         return _snake;
     };
 
     this.move = function(direction){
+        _tailNode= _snake[_snake.length-1];
         switch(direction)
         {
             case Global.SnakeDirections.Left:
                 if(_growing<1)
                 {
-                    BoardManager.resetNode(getTailNode().position);
-                    getTailNode().position.top= _snake[0].position.top;
-                    getTailNode().position.left = _snake[0].position.left-1;
+                    BoardManager.resetNode(_tailNode.position);
+                    _tailNode.position.top= _snake[0].position.top;
+                    _tailNode.position.left = _snake[0].position.left-1;
                     _snake.unshift(_snake.pop());
                     BoardManager.setClassToNode(_snake[0].position, Global.NodeClasses.snakeClass)
                 }
@@ -107,9 +89,9 @@ var Snake = new function() {
             case Global.SnakeDirections.Right:
                 if(_growing<1)
                 {
-                    BoardManager.resetNode(getTailNode().position);
-                    getTailNode().position.top= _snake[0].position.top;
-                    getTailNode().position.left = _snake[0].position.left+1;
+                    BoardManager.resetNode(_tailNode.position);
+                    _tailNode.position.top= _snake[0].position.top;
+                    _tailNode.position.left = _snake[0].position.left+1;
                     _snake.unshift(_snake.pop());
                     BoardManager.setClassToNode(_snake[0].position, Global.NodeClasses.snakeClass)
                 }
@@ -123,9 +105,9 @@ var Snake = new function() {
             case Global.SnakeDirections.Up:
                 if(_growing<1)
                 {
-                    BoardManager.resetNode(getTailNode().position);
-                    getTailNode().position.top= _snake[0].position.top-1;
-                    getTailNode().position.left = _snake[0].position.left;
+                    BoardManager.resetNode(_tailNode.position);
+                    _tailNode.position.top= _snake[0].position.top-1;
+                    _tailNode.position.left = _snake[0].position.left;
                     _snake.unshift(_snake.pop());
                     BoardManager.setClassToNode(_snake[0].position, Global.NodeClasses.snakeClass)
                 }
@@ -139,9 +121,9 @@ var Snake = new function() {
             case Global.SnakeDirections.Down:
                 if(_growing<1)
                 {
-                    BoardManager.resetNode(getTailNode().position);
-                    getTailNode().position.top= _snake[0].position.top+1;
-                    getTailNode().position.left = _snake[0].position.left;
+                    BoardManager.resetNode(_tailNode.position);
+                    _tailNode.position.top= _snake[0].position.top+1;
+                    _tailNode.position.left = _snake[0].position.left;
                     _snake.unshift(_snake.pop());
                     BoardManager.setClassToNode(_snake[0].position, Global.NodeClasses.snakeClass)
                 }
