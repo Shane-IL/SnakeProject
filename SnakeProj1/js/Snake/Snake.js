@@ -51,12 +51,14 @@ var Snake = new function() {
     this.isAlive = function(){
         if(_this.eatingSelf(_snake[0].position)) return false;
         else if(GameLogic.isWall(_snake[0].position)) return false;
+        else if (Holes.inHole(_snake[0].position)) return false;
         else return true;
     };
 
     this.hasEaten = function(){
         if($.equalObjects(Food.getPosition(), _snake[0].position)){
             Food.refreshFood();
+            Holes.refreshHoles();
             _growing = 3;
             GameLogic.incrementScore();
         }
