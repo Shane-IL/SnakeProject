@@ -16,7 +16,7 @@ var Food = new function () {
         do {
             _position.top = Math.floor((Math.random() * 39));
             _position.left = Math.floor((Math.random() * 39));
-        } while (Snake.occupiesNode(_position));
+        } while (Snake.occupiesNode(_position) || Holes.inHole(_position));
         BoardManager.setClassToNode(_position, Global.NodeClasses.foodClass);
     };
 
