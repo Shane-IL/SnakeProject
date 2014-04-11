@@ -73,6 +73,7 @@ var GameLogic = new function () {
         _this.setSpeed(200);
         Snake.refreshSnake();
         Food.refreshFood();
+        Holes.clearHoles();
         _score = 0;
         this.gameLoop();
 
@@ -107,7 +108,9 @@ var GameLogic = new function () {
         Snake.hasEaten();
         ScreenButtonManager.listen();
         MoveButtonManager.listen();
+        //Move to display manager class
         $('#speedStatus').html(_speed);
+        $('#score').html(_score);
         if (!Snake.isAlive()) {
             _this.stopGame();
         }
