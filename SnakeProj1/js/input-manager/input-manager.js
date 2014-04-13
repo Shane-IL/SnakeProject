@@ -43,5 +43,16 @@ var ScreenButtonManager = new function () {
         $('#speedDown').unbind().click(function () {
             GameLogic.incrementSpeed(50)
         });
+        $(document).unbind().keydown(function (e) {
+            var key = e.which;
+            if (GameLogic.getChanges() < 1) {
+                if (key == "88") {
+                    GameLogic.incrementSpeed(-50)
+                }
+                else if (key == "90") {
+                    GameLogic.incrementSpeed(50)
+                }
+            }
+        });
     };
 };
