@@ -46,10 +46,10 @@ var ScreenButtonManager = new function () {
         $(document).unbind().keydown(function (e) {
             var key = e.which;
             if (GameLogic.getChanges() < 1) {
-                if (key == "88") {
+                if (key == "90") {
                     GameLogic.incrementSpeed(-50)
                 }
-                else if (key == "90") {
+                else if (key == "88") {
                     GameLogic.incrementSpeed(50)
                 }
             }
