@@ -11,7 +11,6 @@ var GameLogic = new function () {
     var _this = this;
     var _speed = 200;
     var _dirChanges;
-    if (localStorage.getItem("hiScore") === null)localStorage.setItem("hiScore", 0);
 
     this.getChanges = function () {
         return _dirChanges;
@@ -28,15 +27,6 @@ var GameLogic = new function () {
         _score = value;
     };
 
-    this.getHiScore = function(){
-      return localStorage.getItem("hiScore");
-    };
-
-    this.evalHiScore = function(value){
-      if(value> localStorage.getItem("hiScore"))localStorage.setItem("hiScore", value);
-    };
-
-
     this.getSpeed = function () {
         return _speed;
     };
@@ -46,7 +36,8 @@ var GameLogic = new function () {
     };
 
     this.incrementSpeed = function (increment) {
-        if (0 <_speed < 6000) {
+        console.log(increment)
+        if (_speed < 6000 && _speed >= 50) {
             _speed += increment;
             clearInterval(ticker);
             ticker = setInterval(function () {
@@ -103,6 +94,7 @@ var GameLogic = new function () {
 
 //fix
     this.stopGame = function () {
+        console.log("stopped");
         clearInterval(ticker);
         var ans = confirm('Game Over, Try Again?');
         if (ans) {
@@ -116,8 +108,9 @@ var GameLogic = new function () {
         Snake.hasEaten();
         ScreenButtonManager.listen();
         MoveButtonManager.listen();
-        _this.evalHiScore(_score);
-        DisplayManager.update();
+        //Move to display manager class
+        $('#speedStatus').html(_speed);
+        $('#score').html(_score);
         if (!Snake.isAlive()) {
             _this.stopGame();
         }

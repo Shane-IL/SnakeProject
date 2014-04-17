@@ -1,18 +1,8 @@
-#game-board {
+#gameBoard{
     border: 3px double black;
     height: 400px;
     width: 400px;
-    top: 50%;
-    left: 50%;
-    margin-top: -200px;
-    margin-left: -200px;
-    position: fixed;
+    position: relative;
 }
 
-#control-board{
-    position: fixed;
-    margin-bottom: 10px;
-    bottom: 20px;
-    left: 50%;
-}
 

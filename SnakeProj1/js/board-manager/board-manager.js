@@ -16,7 +16,7 @@ var BoardManager = new function () {
     };
 
     this.initialize = function () {
-        $gameBoard = $('#game-board');
+        $gameBoard = $('#gameBoard');
     }
 
     this.populateBoard = function () {

@@ -37,11 +37,10 @@ var Holes = new function () {
     };
 
     this.inHole = function(position){
-        var result = false;
         for(var i=0; i<_holes.length; i++){
-            if($.equalObjects(position, _holes[i].position))return true;
+            if($.equalObjects(position, _holes[i].position)) return true;
+            else return false;
         }
-        return false;
     };
 
 };
