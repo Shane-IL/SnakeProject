@@ -23,19 +23,19 @@
     border-radius: 5px;
 }
 
-#gameBoard .nodeClass{
+#game-board .nodeClass{
 
 }
 
-#gameBoard .snakeClass{
+#game-board .snakeClass{
 
 }
 
-#gameBoard .node-class.food-class{
+#game-board .node-class.food-class{
     background-color: red;
 }
 
-#gameBoard .nodeClass.snake-class{
+#game-board .nodeClass.snake-class{
     background-color: green;
 }
 
