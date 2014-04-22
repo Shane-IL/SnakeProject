@@ -14,8 +14,8 @@ var Food = new function () {
     this.refreshFood = function () {
         if (!Snake.occupiesNode(_position))BoardManager.setClassToNode(_position, Global.NodeClasses.defaultClass);
         do {
-            _position.top = Math.floor((Math.random() * 39));
-            _position.left = Math.floor((Math.random() * 39));
+            _position.top = Math.floor((Math.random() * (Global.Constants.GridHeight-1)));
+            _position.left = Math.floor((Math.random() * (Global.Constants.GridWidth-1)));
         } while (Snake.occupiesNode(_position) || Holes.inHole(_position));
         BoardManager.setClassToNode(_position, Global.NodeClasses.foodClass);
     };
