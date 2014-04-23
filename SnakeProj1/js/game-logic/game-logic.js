@@ -69,6 +69,7 @@ var GameLogic = new function () {
     };
 
     this.initialize = function () {
+        SizeManager.setBoardSize();
         BoardManager.initialize();
     };
 
