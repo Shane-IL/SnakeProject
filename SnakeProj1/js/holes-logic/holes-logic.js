@@ -15,8 +15,8 @@ var Holes = new function () {
         if(score%4 ===0){
             var position = {top: 0, left: 0};
             do {
-                position.top = Math.floor((Math.random() * (Global.Constants.GridHeight-1)));
-                position.left = Math.floor((Math.random() * (Global.Constants.GridWidth-1)));
+                position.top = Math.floor((Math.random() * (Global.Constants.VerticalBorder-1)));
+                position.left = Math.floor((Math.random() * (Global.Constants.HorizontalBorder-1)));
             } while (Snake.occupiesNode(position) || position===Food.getPosition());
             _holes.push({position: position});
         }
