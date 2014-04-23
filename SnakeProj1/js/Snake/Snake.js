@@ -86,6 +86,7 @@ var Snake = new function() {
                     _snake.unshift({position: {top: _snake[0].position.top, left: _snake[0].position.left-1}});
                     _growing--;
                     BoardManager.setClassToNode(_snake[0].position, Global.NodeClasses.snakeClass)
+                    BoardManager.setClassToNode(_tailNode.position, Global.NodeClasses.tailClass)
                 }
                 break;
             case Global.SnakeDirections.Right:
@@ -102,6 +103,7 @@ var Snake = new function() {
                     _snake.unshift({position: {top: _snake[0].position.top, left: _snake[0].position.left+1}});
                     _growing--;
                     BoardManager.setClassToNode(_snake[0].position, Global.NodeClasses.snakeClass)
+                    BoardManager.setClassToNode(_tailNode.position, Global.NodeClasses.tailClass)
                 }
                 break;
             case Global.SnakeDirections.Up:
@@ -118,6 +120,7 @@ var Snake = new function() {
                     _snake.unshift({position: {top: _snake[0].position.top-1, left: _snake[0].position.left}});
                     _growing--;
                     BoardManager.setClassToNode(_snake[0].position, Global.NodeClasses.snakeClass)
+                    BoardManager.setClassToNode(_tailNode.position, Global.NodeClasses.tailClass)
                 }
                 break;
             case Global.SnakeDirections.Down:
@@ -133,7 +136,8 @@ var Snake = new function() {
                 {
                     _snake.unshift({position: {top: _snake[0].position.top+1, left: _snake[0].position.left}});
                     _growing--;
-                    BoardManager.setClassToNode(_snake[0].position, Global.NodeClasses.snakeClass)
+                    BoardManager.setClassToNode(_snake[0].position, Global.NodeClasses.snakeClass);
+                    BoardManager.setClassToNode(_tailNode.position, Global.NodeClasses.tailClass);
                 }
                 break;
             default:

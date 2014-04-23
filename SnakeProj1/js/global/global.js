@@ -5,10 +5,13 @@ var Global = {
     Constants: {
         InitialSnakeLength: 5,
         InitialSnakePosition: {top: 20, left: 20},
-        GridHeight: 40,
-        GridWidth: 40,
-        GridCellWidth: 1,
-        GridCellHeight: 1
+        GridHeight: 80,
+        GridWidth: 80,
+        GridCellWidth: 2,
+        GridCellHeight: 2,
+        SizeMultiplier: 10,
+        VerticalBorder: undefined,
+        HorizontalBorder: undefined
     },
     Levels: {
         Easy: 600,
@@ -26,6 +29,7 @@ var Global = {
         foodClass: 'food-class',
         holeClass: 'hole-class',
         snakeClass: 'snake-class',
-        defaultClass: 'default-class'
+        defaultClass: 'default-class',
+        tailClass: 'tail-class'
     }
 };

@@ -69,7 +69,11 @@ var GameLogic = new function () {
     };
 
     this.initialize = function () {
+        SizeManager.setBoardSize();
+        SizeManager.setGridBorders();
+        SizeManager.setInitialSnakePosition();
         BoardManager.initialize();
+
     };
 
     this.run = function () {
@@ -96,8 +100,8 @@ var GameLogic = new function () {
     };
 
     this.isWall = function (position) {
-        if (position.top < 0 || position.top > Global.Constants.GridHeight - 1) return true;
-        else if (position.left < 0 || position.left > Global.Constants.GridWidth - 1) return true;
+        if (position.top < 0 || position.top > Global.Constants.VerticalBorder - 1) return true;
+        else if (position.left < 0 || position.left > Global.Constants.HorizontalBorder - 1) return true;
         else return false;
     };
 

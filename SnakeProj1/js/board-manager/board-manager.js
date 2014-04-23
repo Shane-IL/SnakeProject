@@ -7,8 +7,8 @@ var BoardManager = new function () {
     var $gameBoard;
     var boardNodesData = [];
     var Templates = {
-        rowTemplate: '<div class="row-class"></div>',
-        nodeTemplate: '<span class="vertically-centered"></span>'
+        rowTemplate: '<div class="row-class" style="height: ${tempheight}"></div>',
+        nodeTemplate: '<span class="vertically-centered" style="height: ${tempheight}; width: ${tempwidth}"></span>'
     }
 
     this.getBoardData = function () {
@@ -20,13 +20,13 @@ var BoardManager = new function () {
     }
 
     this.populateBoard = function () {
-        for (var i = 0; i < Global.Constants.GridHeight; i++) {
+        for (var i = 0; i < Global.Constants.GridHeight/Global.Constants.GridCellHeight; i++) {
             boardNodesData[i] = {};
 
-            var $row = useTemplate(Templates.rowTemplate);
+            var $row = useTemplate(Templates.rowTemplate, {tempheight: (Global.Constants.GridCellHeight*Global.Constants.SizeMultiplier).toString()+'px'});
 
-            for (var j = 0; j < Global.Constants.GridWidth; j++) {
-                var $node = useTemplate(Templates.nodeTemplate);
+            for (var j = 0; j < Global.Constants.GridWidth/Global.Constants.GridCellWidth; j++) {
+                var $node = useTemplate(Templates.nodeTemplate, {tempheight: (Global.Constants.GridCellHeight*Global.Constants.SizeMultiplier).toString()+'px', tempwidth: (Global.Constants.GridCellWidth*Global.Constants.SizeMultiplier).toString()+'px'});
                 boardNodesData[i][j] = {$element: $node, ClassManager: ClassManager.create($node, {class: Global.NodeClasses.defaultClass})};
                 $row.append($node);
             }
