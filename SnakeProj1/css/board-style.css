@@ -1,9 +1,5 @@
 #game-board{
     border: 3px double black;
-  /*  height: 400px;
-    width: 400px;
-    margin-top: -200px;
-    margin-left: -200px; */
     top: 50%;
     left: 50%;
     position: fixed;
@@ -12,8 +8,5 @@
 
 #control-board{
     position: fixed;
-    margin-bottom: 10px;
-    bottom: 20px;
-    left: 50%;
 }
 
