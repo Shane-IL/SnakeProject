@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3d93e67b-ded0-4be3-bdb3-842aaa680568" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/board-manager/board-manager.css" afterPath="$PROJECT_DIR$/js/board-manager/board-manager.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/board-manager/board-manager.js" afterPath="$PROJECT_DIR$/js/board-manager/board-manager.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/default.css" afterPath="$PROJECT_DIR$/css/default.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/game-logic/game-logic.js" afterPath="$PROJECT_DIR$/js/game-logic/game-logic.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/global/global.js" afterPath="$PROJECT_DIR$/js/global/global.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/holes-logic/holes-logic.js" afterPath="$PROJECT_DIR$/js/holes-logic/holes-logic.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/food/Food.js" afterPath="$PROJECT_DIR$/js/food/Food.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/board-style.css" afterPath="$PROJECT_DIR$/css/board-style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/utils/size-manager.js" afterPath="$PROJECT_DIR$/js/utils/size-manager.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/snake-home.html" afterPath="$PROJECT_DIR$/snake-home.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="SnakeProj1.iws" />
@@ -89,8 +87,8 @@
       <file leaf-file-name="board-style.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/css/board-style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="575">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.26608697" vertical-offset="0" max-vertical-offset="575">
+              <caret line="9" column="20" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -129,8 +127,8 @@
       <file leaf-file-name="snake-home.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/snake-home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="15.692307" vertical-offset="408" max-vertical-offset="1054">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="-19.807692" vertical-offset="318" max-vertical-offset="1088">
+              <caret line="49" column="4" selection-start-line="49" selection-start-column="4" selection-end-line="49" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -190,8 +188,6 @@
         <option value="$PROJECT_DIR$/js/snake/snake.js" />
         <option value="$PROJECT_DIR$/js/input-manager/input-manager.js" />
         <option value="$PROJECT_DIR$/js/food/food.js" />
-        <option value="$PROJECT_DIR$/snake-home.html" />
-        <option value="$PROJECT_DIR$/css/board-style.css" />
         <option value="$PROJECT_DIR$/css/default.css" />
         <option value="$PROJECT_DIR$/js/board-manager/board-manager.css" />
         <option value="$PROJECT_DIR$/js/board-manager/board-manager.js" />
@@ -200,6 +196,8 @@
         <option value="$PROJECT_DIR$/js/global/global.js" />
         <option value="$PROJECT_DIR$/js/utils/size-manager.js" />
         <option value="$PROJECT_DIR$/js/game-logic/game-logic.js" />
+        <option value="$PROJECT_DIR$/snake-home.html" />
+        <option value="$PROJECT_DIR$/css/board-style.css" />
       </list>
     </option>
   </component>
@@ -631,7 +629,11 @@
       <created>1398239557028</created>
       <updated>1398239557028</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Added size management, all sizes are dynamically set by global constant values.">
+      <created>1398256946668</created>
+      <updated>1398256946668</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -656,10 +658,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32925472" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32925472" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.51111114" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -715,7 +717,8 @@
     <MESSAGE value="stupid xmls" />
     <MESSAGE value="Changed reference to constants instead of implicit value." />
     <MESSAGE value="Added Size-manager util and implemented function that sets board size from constants." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Size-manager util and implemented function that sets board size from constants." />
+    <MESSAGE value="Added size management, all sizes are dynamically set by global constant values." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added size management, all sizes are dynamically set by global constant values." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1120,8 +1123,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/snake-home.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="15.692307" vertical-offset="408" max-vertical-offset="1054">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="-19.807692" vertical-offset="318" max-vertical-offset="1088">
+          <caret line="49" column="4" selection-start-line="49" selection-start-column="4" selection-end-line="49" selection-end-column="4" />
           <folding />
         </state>
       </provider>
@@ -1136,8 +1139,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/css/board-style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="575">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.26608697" vertical-offset="0" max-vertical-offset="575">
+          <caret line="9" column="20" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
           <folding />
         </state>
       </provider>
