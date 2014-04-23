@@ -8,5 +8,6 @@
 
 #control-board{
     position: fixed;
+    border: 3px double black;
 }
 

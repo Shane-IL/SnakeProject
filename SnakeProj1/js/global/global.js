@@ -29,6 +29,7 @@ var Global = {
         foodClass: 'food-class',
         holeClass: 'hole-class',
         snakeClass: 'snake-class',
-        defaultClass: 'default-class'
+        defaultClass: 'default-class',
+        tailClass: 'tail-class'
     }
 };

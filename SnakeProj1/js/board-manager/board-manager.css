@@ -8,18 +8,28 @@
 }
 
 .food-class{
-    background-color: red;
-    border-radius: 5px;
+
+    background: url(http://www.clker.com/cliparts/3/m/v/Y/E/V/small-red-apple-th.png);
+    background-size: 100%;
+    border-radius: 10px;
+    z-index: 2;
 }
 
 .snake-class{
     background-color: green;
-    border-radius: 3px;
+    border-radius: 7px;
+}
+
+.tail-class {
+    background-color: orangered;
+    border-radius: 7px;
 }
 
 .hole-class{
-    background-color: black;
-    border-radius: 5px;
+    background: url(http://clipartlog.com/wp-content/uploads/2008/10/spider-small.png);
+    background-size: 100%;
+    border-radius: 10px;
+    z-index: 2;
 }
 
 #game-board .nodeClass{
