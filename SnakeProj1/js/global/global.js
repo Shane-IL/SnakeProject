@@ -30,6 +30,9 @@ var Global = {
         holeClass: 'hole-class',
         snakeClass: 'snake-class',
         defaultClass: 'default-class',
-        tailClass: 'tail-class'
+        tailClass: 'tail-class',
+        digestClass: 'digest-class',
+        pooClass: 'poo-class'
+
     }
 };

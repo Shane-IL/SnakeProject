@@ -86,7 +86,7 @@ var GameLogic = new function () {
         _this.setSpeed(200);
         Snake.refreshSnake();
         Food.refreshFood();
-        Holes.clearHoles();
+        Poos.clearHoles();
         _score = 0;
         this.gameLoop();
 

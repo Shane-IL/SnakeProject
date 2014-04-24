@@ -51,14 +51,14 @@ var Snake = new function() {
     this.isAlive = function(){
         if(_this.eatingSelf(_snake[0].position)) return false;
         else if(GameLogic.isWall(_snake[0].position)) return false;
-        else if (Holes.inHole(_snake[0].position)) return false;
+        else if (Poos.inHole(_snake[0].position)) return false;
         else return true;
     };
 
     this.hasEaten = function(){
         if($.equalObjects(Food.getPosition(), _snake[0].position)){
             Food.refreshFood();
-            Holes.refreshHoles();
+            Poos.refreshHoles();
             _growing = 3;
             GameLogic.incrementScore();
         }
@@ -86,7 +86,7 @@ var Snake = new function() {
                     _snake.unshift({position: {top: _snake[0].position.top, left: _snake[0].position.left-1}});
                     _growing--;
                     BoardManager.setClassToNode(_snake[0].position, Global.NodeClasses.snakeClass)
-                    BoardManager.setClassToNode(_tailNode.position, Global.NodeClasses.tailClass)
+
                 }
                 break;
             case Global.SnakeDirections.Right:
@@ -103,7 +103,7 @@ var Snake = new function() {
                     _snake.unshift({position: {top: _snake[0].position.top, left: _snake[0].position.left+1}});
                     _growing--;
                     BoardManager.setClassToNode(_snake[0].position, Global.NodeClasses.snakeClass)
-                    BoardManager.setClassToNode(_tailNode.position, Global.NodeClasses.tailClass)
+
                 }
                 break;
             case Global.SnakeDirections.Up:
@@ -120,7 +120,7 @@ var Snake = new function() {
                     _snake.unshift({position: {top: _snake[0].position.top-1, left: _snake[0].position.left}});
                     _growing--;
                     BoardManager.setClassToNode(_snake[0].position, Global.NodeClasses.snakeClass)
-                    BoardManager.setClassToNode(_tailNode.position, Global.NodeClasses.tailClass)
+
                 }
                 break;
             case Global.SnakeDirections.Down:
@@ -137,7 +137,7 @@ var Snake = new function() {
                     _snake.unshift({position: {top: _snake[0].position.top+1, left: _snake[0].position.left}});
                     _growing--;
                     BoardManager.setClassToNode(_snake[0].position, Global.NodeClasses.snakeClass);
-                    BoardManager.setClassToNode(_tailNode.position, Global.NodeClasses.tailClass);
+
                 }
                 break;
             default:
