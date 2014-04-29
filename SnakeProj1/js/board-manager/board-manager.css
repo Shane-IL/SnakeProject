@@ -11,13 +11,22 @@
 
     background: url(http://www.clker.com/cliparts/3/m/v/Y/E/V/small-red-apple-th.png);
     background-size: 100%;
-    border-radius: 10px;
     z-index: 2;
 }
 
 .snake-class{
     background-color: green;
     border-radius: 7px;
+}
+
+.digest-class{
+    background-color: #665C1F;
+    border-radius: 7px;
+}
+
+.poo-class{
+    background: url(http://www.clker.com/cliparts/9/T/s/m/i/z/new-turd-md.png);
+    background-size: 100%;
 }
 
 .tail-class {
