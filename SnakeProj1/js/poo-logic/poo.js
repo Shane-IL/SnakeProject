@@ -5,20 +5,29 @@ var Poos = new function () {
 
     var _this = this;
     var _poos = [];
-    var _prePoo;
+    var _digest;
 
     this.getPoosArray = function () {
         return  _poos;
     };
 
-    this.digest = function(position){
+    this.isDigesting = function(position){
         if(Snake.occupiesNode(position)){
-            BoardManager.setClassToNode(position, Global.NodeClasses.pooClass)
+            BoardManager.setClassToNode(position, Global.NodeClasses.digestClass)
         }
+        else{
+          _this.newPoo(position);
+        };
     };
 
     this.newPoo = function(position){
+        _poos.push({position: position});
+    };
 
+    this.renderPoos = function(){
+        for(var i=0; i<_poos.length; i++){
+            BoardManager.setClassToNode(_poos[i].position,Global.NodeClasses.pooClass);
+        }
     };
 
     this.refreshHoles = function(){

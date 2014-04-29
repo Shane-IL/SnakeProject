@@ -58,6 +58,8 @@ var Snake = new function() {
     this.hasEaten = function(){
         if($.equalObjects(Food.getPosition(), _snake[0].position)){
             Food.refreshFood();
+            Poos.isDigesting(_snake[0].position);
+            Poos.renderPoos();
             Poos.refreshHoles();
             _growing = 3;
             GameLogic.incrementScore();
